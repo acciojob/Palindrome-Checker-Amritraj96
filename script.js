@@ -1,14 +1,12 @@
-function palindrome(str) {
+function isPalindrome(str) {
+    // Clean string (lowercase and remove non-alphanumeric characters)
     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    let left = 0;
-    let right = cleanStr.length - 1;
     
-    while (left < right) {
-        if (cleanStr[left] !== cleanStr[right]) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    return true;
+    // Reverse and compare
+    const reversedStr = cleanStr.split('').reverse().join('');
+    
+    return cleanStr === reversedStr;
 }
+
+// Make sure you export the correctly named function
+module.exports = isPalindrome;
